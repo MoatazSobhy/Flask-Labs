@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}My Books{% endblock %}
+
+{% block content %}
+    <div class="col-md-8 offset-md-2">
+        <h2 class="text-center">My Books</h2>
+        <ul class="list-group">
+            {% for book in books %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    {{ book.title }}
+                    <a href="{{ url_for('delete_book', book_id=book.id) }}" class="btn btn-danger btn-sm">Delete</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
