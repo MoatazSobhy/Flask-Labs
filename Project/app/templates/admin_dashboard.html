@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2>Admin Dashboard</h2>
+
+<h3>All Users</h3>
+<ul class="list-group">
+    {% for user in users %}
+        <li class="list-group-item">
+            {{ user.username }} - {{ 'Admin' if user.is_admin else 'User' }}
+        </li>
+    {% endfor %}
+</ul>
+
+<h3 class="mt-4">All Books</h3>
+<ul class="list-group">
+    {% for book in books %}
+        <li class="list-group-item">
+            {{ book.title }} by {{ book.owner.username if book.owner else 'No Owner' }}
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
